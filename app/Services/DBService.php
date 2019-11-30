@@ -31,13 +31,32 @@ class DBService
     }
 
     /**
-     * Executes given query.
+     * Executes given query. Returns multiple resultSet.
      *
      * @param string $query Query for executing.
      *
      * @return array|null
      */
-    public function query($query)
+    public function get($query)
+    {
+        $result = $this->connection->query($query);
+
+        $resultSet = [];
+        while ($cRecord = $result->fetch_assoc()) {
+            $resultSet[] = $cRecord;
+        }
+
+        return $resultSet;
+    }
+
+    /**
+     * Return single record from db.
+     *
+     * @param string $query Query for executing.
+     *
+     * @return array|null
+     */
+    public function findOne($query)
     {
         $result = $this->connection->query($query);
 
