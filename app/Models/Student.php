@@ -29,9 +29,14 @@ class Student extends BaseModel
         return ['message' => 'There is no student with given id.'];
     }
 
+    /**
+     * @param array $data Data for inserting to database.
+     *
+     * @return string
+     */
     public function set($data)
     {
-
+        return $this->dbService->set('INSERT INTO test.students (`name`, `school_board_id`) VALUES ("' . $data['name'] . '", ' . $data['school_board_id'] . ');');
     }
 
     /**
