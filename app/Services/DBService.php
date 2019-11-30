@@ -50,6 +50,22 @@ class DBService
     }
 
     /**
+     * @param $query
+     *
+     * @return string
+     */
+    public function set($query)
+    {
+        try {
+            $this->connection->query($query);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+
+        return 'Record inserted successfully.';
+    }
+
+    /**
      * Return single record from db.
      *
      * @param string $query Query for executing.

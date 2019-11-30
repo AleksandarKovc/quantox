@@ -28,4 +28,14 @@ class Grade extends BaseModel
 
         return ['message' => 'There is no grade with given id.'];
     }
+
+    /**
+     * @param array $data Data for inserting to database.
+     *
+     * @return string
+     */
+    public function set($data)
+    {
+        return $this->dbService->set('INSERT INTO test.grades (`grade`, `student_id`) VALUES ("' . $data['grade'] . '", ' . $data['student_id'] . ');');
+    }
 }
