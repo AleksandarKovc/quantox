@@ -12,7 +12,7 @@ class Student extends BaseModel
     /**
      * @param $id
      *
-     * @return array|null
+     * @return array
      */
     public function get($id)
     {
@@ -26,7 +26,7 @@ class Student extends BaseModel
             return $student;
         }
 
-        return ['message' => 'There is no student with given id.'];
+        die('There is no student with given id.');
     }
 
     /**
