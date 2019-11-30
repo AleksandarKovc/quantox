@@ -1,0 +1,15 @@
+{
+    "name": "developer/quantox",
+    "authors": [
+        {
+            "name": "akovc",
+            "email": "aleksandarmf@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
